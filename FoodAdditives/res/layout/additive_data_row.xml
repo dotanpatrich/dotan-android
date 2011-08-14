@@ -1,39 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:padding="6dip">
     
-    <!-- <ImageView
-        android:id="@+id/safety_icon"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dip"
+        android:layout_weight="1"
+        android:layout_height="fill_parent">
         
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:layout_marginRight="6dip"
-        />-->
-    
-    
-    <!-- <TextView
-        android:id="@+id/enumber_text_view"
-        android:layout_gravity="right"
-        android:text="E100"
-        android:layout_width="fill_parent"
-        android:scrollHorizontally="false"
-        android:ellipsize="marquee"
-        android:textStyle="bold"
-        android:layout_toLeftOf="@id/safety_icon"
-        android:layout_alignParentTop="true"/> -->
-        
-        
-    <!--  <TextView
-            android:id="@+id/name_text_view"
+        <TextView
+            android:id="@+id/enumber_text_view"
+            android:layout_gravity="right"
+            android:gravity="right"
             android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:scrollHorizontally="false"
             android:ellipsize="marquee"
             android:textStyle="bold"
-            android:layout_toLeftOf="@id/safety_icon"
-            android:layout_below="@id/enumber_text_view"
-        />-->
+        />
+        
+        <TextView
+            android:id="@+id/name_text_view"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:textStyle="bold"
+        />
+        
+        
+        <TextView
+            android:id="@+id/category_text_view"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:scrollHorizontally="false" 
+        />
+        
+        <TextView
+            android:id="@+id/comment_text_view"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:scrollHorizontally="false" 
+        />
+                     
+    </LinearLayout>
     
-</RelativeLayout>
+    <ImageView
+        android:id="@+id/safety_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_marginRight="6dip"/>
+    
+    
+</LinearLayout>
