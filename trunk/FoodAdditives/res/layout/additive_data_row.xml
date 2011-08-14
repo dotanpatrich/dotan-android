@@ -32,23 +32,7 @@
             android:textStyle="bold"
         />
         
-        
-        <TextView
-            android:id="@+id/category_text_view"
-            android:layout_width="fill_parent"
-            android:layout_height="0dip"
-            android:layout_weight="1"
-            android:scrollHorizontally="false" 
-        />
-        
-        <TextView
-            android:id="@+id/comment_text_view"
-            android:layout_width="fill_parent"
-            android:layout_height="0dip"
-            android:layout_weight="1"
-            android:scrollHorizontally="false" 
-        />
-                     
+       
     </LinearLayout>
     
     <ImageView

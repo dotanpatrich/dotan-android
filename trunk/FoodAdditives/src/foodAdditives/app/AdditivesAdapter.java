@@ -30,35 +30,27 @@ public class AdditivesAdapter extends ArrayAdapter<Additive> {
     public View getView(int position, View convertView, ViewGroup parent) {
 		
         LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = vi.inflate(R.layout.additive_data_row, parent);
+        View view = vi.inflate(R.layout.additive_data_row, null);
 		         
         Additive additive = additiveItems.get(position);
         if (additive != null) {
         	// e number
-        	//TextView eTextView = (TextView) view.findViewById(R.id.enumber_text_view);
-            //eTextView.setText("E" + additive.eNumber);
+        	TextView eTextView = (TextView) view.findViewById(R.id.enumber_text_view);
+            eTextView.setText("E" + additive.eNumber);
 
             // name_text_view
-            //TextView nameTextView = (TextView) view.findViewById(R.id.name_text_view);
-            //nameTextView.setText(additive.name);
-            
-            // category
-            //TextView ratingTextView = (TextView) view.findViewById(R.id.category_text_view);
-            //ratingTextView.setText(additive.category);
-
-            //comment_text_view
-            //TextView commentTextView = (TextView) view.findViewById(R.id.comment_text_view);
-            //commentTextView.setText(additive.comment);
-            
+            TextView nameTextView = (TextView) view.findViewById(R.id.name_text_view);
+            nameTextView.setText(additive.name);
+                        
             // thumb image
-		    //ImageView imageView = (ImageView) view.findViewById(R.id.safety_icon);
+		    ImageView imageView = (ImageView) view.findViewById(R.id.safety_icon);
 		    	    
-		    //if (additive.safety==Safety.Safe)
-		    	//imageView.setImageBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.safe));
-		    //else if (additive.safety==Safety.Suspicious)
-		    	//imageView.setImageBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.warning));
-		    //else if (additive.safety==Safety.Forbidden)
-		    	//imageView.setImageBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.forbidden));
+		    if (additive.safety==Safety.Safe)
+		    	imageView.setImageBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.safe));
+		    else if (additive.safety==Safety.Suspicious)
+		    	imageView.setImageBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.warning));
+		    else if (additive.safety==Safety.Forbidden)
+		    	imageView.setImageBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.forbidden));
 		}
         return view;
 	}

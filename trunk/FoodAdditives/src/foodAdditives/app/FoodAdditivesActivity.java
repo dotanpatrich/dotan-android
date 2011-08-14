@@ -3,7 +3,7 @@ package foodAdditives.app;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.*;
-import android.view.View;
+import android.view.*;
 import android.widget.*;
 
 public class FoodAdditivesActivity extends Activity {
@@ -63,4 +63,25 @@ public class FoodAdditivesActivity extends Activity {
     		text.getText().delete(text.getText().length()-1, text.getText().length());
     	}
     }
+    
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.options_menu, menu);
+        return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.aboutItem: 
+            	Toast.makeText(this, "תוספי מזון\nנכתב על ידי דותן פטריך\n2011", Toast.LENGTH_SHORT).show();
+                                break;
+            case R.id.exitItem: FoodAdditivesActivity.this.finish();
+                                break;
+        }
+        return true;
+    }
+    
 }
