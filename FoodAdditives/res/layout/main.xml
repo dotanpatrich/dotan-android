@@ -50,6 +50,7 @@
             android:layout_below="@id/text"
             android:layout_above="@id/table"
             android:layout_weight="1"
+            android:fastScrollEnabled="true"
              />
     
 </RelativeLayout>
