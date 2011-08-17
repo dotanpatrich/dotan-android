@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="wrap_content" android:layout_height="wrap_content">
+    
+    <TextView 
+   		android:text="אפליקציה זו מאפשרת חיפוש מידע ובטיחות עבור תוספי מזון. מאגר המידע נלקח מתוך מאגרי מידע פתוחים וחופשיים באינטרנט ובטיחות התוספים נבדקה מול פרסומי רשות המזון והתרופות האמריקאית וכן האיחוד הארופאי." 
+   		android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="false"
+        android:scrollHorizontally="false"
+        android:ellipsize="none"
+        />
+     <TextView 
+   		android:text="מקרא אייקונים:" 
+   		android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="false"
+        android:scrollHorizontally="false"
+        android:ellipsize="none"
+        />
+       
+      <LinearLayout
+      	android:layout_width="fill_parent" 
+      	android:layout_height="wrap_content"
+      	android:gravity="right"
+      	android:orientation="horizontal"
+      	android:layout_marginRight="6dip"
+      	>
+      	<TextView 
+      		android:text="מותר לשימוש"
+      		android:singleLine="true"
+      		android:layout_width="fill_parent" 
+      		android:layout_height="wrap_content"/>
+      		
+     	<ImageView 
+    		android:id="@+id/about_safe_icon"
+    		android:src="@drawable/safe"
+    		android:layout_width="wrap_content" 
+      		android:layout_height="wrap_content"
+    		/>
+      		
+      </LinearLayout>
+      
+      <LinearLayout
+      	android:layout_width="fill_parent" 
+      	android:layout_height="wrap_content"
+      	android:gravity="right"
+      	android:orientation="horizontal"
+      	android:layout_marginRight="6dip"
+      	>
+      	<TextView 
+      		android:text="קיים חשד סביר לסיכון"
+      		android:singleLine="true"
+      		android:layout_width="fill_parent" 
+      		android:layout_height="wrap_content"/>
+      		
+    	<ImageView 
+    		android:id="@+id/about_suspect_icon"
+    		android:src="@drawable/warning"
+    		android:layout_width="wrap_content" 
+      		android:layout_height="wrap_content"
+    		/>
+      		
+      </LinearLayout>
+      
+      <LinearLayout
+      	android:layout_width="fill_parent" 
+      	android:layout_height="wrap_content"
+      	android:gravity="right"
+      	android:orientation="horizontal"
+      	android:layout_marginRight="6dip"
+      	>
+      	<TextView 
+      		android:text="הוכח כמזיק"
+      		android:singleLine="true"
+      		android:layout_width="fill_parent" 
+      		android:layout_height="wrap_content"/>
+      		
+    	<ImageView 
+    		android:id="@+id/about_forbidden_icon"
+    		android:src="@drawable/forbidden"
+    		android:layout_width="wrap_content" 
+      		android:layout_height="wrap_content"
+    		/>
+      		
+      </LinearLayout>
+      
+        
+      <TextView 
+   		android:text="פותח על ידי דותן פטריך, 2011" 
+   		android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="false"
+        android:scrollHorizontally="false"
+        android:ellipsize="none"
+        android:paddingTop="5dip"
+        />
+    
+</LinearLayout>

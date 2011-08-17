@@ -1,6 +1,9 @@
 package foodAdditives.app;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.*;
 import android.view.*;
@@ -75,11 +78,24 @@ public class FoodAdditivesActivity extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.aboutItem: 
-            	Toast.makeText(this, "תוספי מזון\nנכתב על ידי דותן פטריך\n2011", Toast.LENGTH_SHORT).show();
-                                break;
-            case R.id.exitItem: FoodAdditivesActivity.this.finish();
-                                break;
+            case R.id.aboutItem:   
+            	Context context = getApplicationContext();
+            	Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("אודות תוספי מזון");
+                builder.setIcon(R.drawable.logo);
+                builder.setPositiveButton("אישור", null);
+                
+                LayoutInflater  inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View view = inflater.inflate(R.layout.about_dialog, (ViewGroup) findViewById(R.layout.main));               
+                builder.setView(view);                
+                
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            	
+                break;
+            case R.id.exitItem: 
+            	FoodAdditivesActivity.this.finish();
+                break;
         }
         return true;
     }
