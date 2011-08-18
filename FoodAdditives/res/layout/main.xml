@@ -2,28 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
-            
-    <EditText 
-    		android:id="@+id/filter"
-    		android:inputType="number"
-    		android:maxLength="3"
-    		android:ems="4"
-    		android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentTop="true"
-             />
 
-	<TextView
-            android:id="@+id/text"
-			android:text="E"    
-			android:textStyle="bold"               
-			android:textSize="58px"
-			android:paddingRight="5px"     
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/filter"
-            android:layout_alignParentTop="true" />
+	<foodAdditives.app.ActionBar
+        android:id="@+id/actionbar"
+        style="@style/ActionBar"
+        android:layout_alignParentTop="true"
+        />           
     
     <TableLayout style="@android:style/ButtonBar" android:layout_alignParentBottom="true" android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/table" android:stretchColumns="0,1,2,3,4">
         <TableRow android:id="@+id/tableRow1" android:layout_width="fill_parent" android:layout_height="wrap_content">
@@ -40,6 +24,7 @@
             <Button android:gravity="center" android:id="@+id/button8" android:text="8" android:onClick="ButtonClicked"></Button>
             <Button android:gravity="center" android:id="@+id/button9" android:text="9" android:onClick="ButtonClicked"></Button>
             <Button android:gravity="center" android:id="@+id/button10" android:text="0" android:onClick="ButtonClicked"></Button>
+            <Button android:gravity="center" android:text="X" android:id="@+id/button12" android:onClick="ClearButtonClicked"></Button>
         </TableRow>
     </TableLayout>
     
@@ -47,7 +32,7 @@
             android:id="@+id/elist"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text"
+            android:layout_below="@id/actionbar"
             android:layout_above="@id/table"
             android:layout_weight="1"
             android:fastScrollEnabled="true"

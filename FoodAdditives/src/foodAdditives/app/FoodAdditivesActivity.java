@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.*;
 import android.view.*;
@@ -17,7 +18,18 @@ public class FoodAdditivesActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main);
+        
+        // set action bar items
+        ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
+        actionBar.setTitle(R.string.app_name);
+        actionBar.setHomeLogo(R.drawable.actionbar_home_logo);
+        
+        // add edittext to the actionbar
+        LayoutInflater  inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        EditText editText = (EditText)inflater.inflate(R.layout.actionbar_edittext, null);
+        actionBar.addActionView(editText);
         
         // set list adapter
         AdditivesAdapter adapter = new AdditivesAdapter(this, R.layout.additive_data_row, repository.all()); 
@@ -67,6 +79,16 @@ public class FoodAdditivesActivity extends Activity {
     	}
     }
     
+    public void ClearButtonClicked(View view) {
+		EditText text = (EditText)findViewById(R.id.filter);
+    	
+    	if (text.getText().length() > 0) {
+    		text.setText("");
+    	}
+    }
+    
+    
+    
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -79,7 +101,6 @@ public class FoodAdditivesActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.aboutItem:   
-            	Context context = getApplicationContext();
             	Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("אודות תוספי מזון");
                 builder.setIcon(R.drawable.logo);
@@ -98,6 +119,12 @@ public class FoodAdditivesActivity extends Activity {
                 break;
         }
         return true;
+    }
+    
+    public static Intent createIntent(Context context) {
+        Intent i = new Intent(context, FoodAdditivesActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        return i;
     }
     
 }
