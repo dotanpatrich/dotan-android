@@ -1,5 +1,6 @@
 package foodAdditives.app;
 
+import foodAdditives.app.ActionBar.Action;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -13,6 +14,9 @@ import android.widget.*;
 public class FoodAdditivesActivity extends Activity {
 	
 	private AdditivesRepository repository = new AdditivesRepository();
+	private EditText filterText;
+	private AdditivesAdapter adapter;
+	private Toast filterToast;
 	
     /** Called when the activity is first created. */
     @Override
@@ -26,34 +30,28 @@ public class FoodAdditivesActivity extends Activity {
         actionBar.setTitle(R.string.app_name);
         actionBar.setHomeLogo(R.drawable.actionbar_home_logo);
         
+        // add button to switch between numbers and text search
+        actionBar.addAction(new ChangeFiterAction());
+        
         // add edittext to the actionbar
         LayoutInflater  inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        EditText editText = (EditText)inflater.inflate(R.layout.actionbar_edittext, null);
-        actionBar.addActionView(editText);
-        
+        filterText = (EditText)inflater.inflate(R.layout.actionbar_edittext, null);
+        actionBar.addActionView(filterText);
+               
         // set list adapter
-        AdditivesAdapter adapter = new AdditivesAdapter(this, R.layout.additive_data_row, repository.all()); 
-        ListView lv = (ListView)findViewById(R.id.elist);
-        lv.setAdapter(adapter);
+        adapter = new AdditivesAdapter(this, R.layout.additive_data_row, repository.all()); 
+        ListView listView = (ListView)findViewById(R.id.elist);
+        listView.setAdapter(adapter);
         
         // set text box listener
         EditText et = (EditText)findViewById(R.id.filter);
         et.addTextChangedListener(new TextWatcher()
         	{
-	        	public void afterTextChanged(Editable s) {
-	        		// get the position of the e number
-	        		EditText et = (EditText)findViewById(R.id.filter);
-	        		String eNumber = et.getText().toString();
-	        		int position = repository.findFirstPostion(eNumber);
-	        		if (position!=-1) {	        		
-	        			// scroll to position
-	        			ListView lv = (ListView)findViewById(R.id.elist);
-	        			lv.setSelection(position);
-	        		}
-	            }
-	         
+	        	public void afterTextChanged(Editable s) {}         
 	            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-	            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+	            public void onTextChanged(CharSequence s, int start, int before, int count) {
+	            	adapter.getFilter().filter(s);
+	            }
         	});
      
         
@@ -67,7 +65,7 @@ public class FoodAdditivesActivity extends Activity {
     	if (text.getText().length() < 4) {
     		// get the button's text to add
     		Button button = (Button)view;    		
-    		text.getText().append(button.getText());
+    		text.getText().append(button.getText());    		
     	}
     }
     
@@ -125,6 +123,20 @@ public class FoodAdditivesActivity extends Activity {
         Intent i = new Intent(context, FoodAdditivesActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         return i;
+    }
+    
+    private class ChangeFiterAction implements Action {
+
+        @Override
+        public int getDrawable() {
+            return R.drawable.ic_menu_sort_numeric;
+        }
+
+        @Override
+        public void performAction(View view) {
+            
+        }
+
     }
     
 }

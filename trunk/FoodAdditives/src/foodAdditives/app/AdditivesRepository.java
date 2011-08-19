@@ -533,6 +533,7 @@ public class AdditivesRepository {
 		return allAdditives;
 	}
 	
+	
 	public int findFirstPostion(String eNumber)
 	{
 		for (int i=0;i<allAdditives.size();i++)
