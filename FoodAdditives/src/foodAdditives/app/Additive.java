@@ -19,8 +19,7 @@ public class Additive {
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return eNumber + " " + safety;
+		return eNumber;
 	}
 	
 	
