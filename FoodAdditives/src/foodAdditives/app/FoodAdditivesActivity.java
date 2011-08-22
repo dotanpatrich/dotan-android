@@ -6,9 +6,11 @@ import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.text.*;
 import android.view.*;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.*;
 
 public class FoodAdditivesActivity extends Activity {
@@ -57,6 +59,11 @@ public class FoodAdditivesActivity extends Activity {
         
         // prevent virtual keyboard on text box filter
         et.setInputType(0);
+        
+        // set empty view for the list
+        View emptyView = findViewById(R.id.empty_view);
+        listView.setEmptyView(emptyView);
+        
     }
     
     public void ButtonClicked(View view) {

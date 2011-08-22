@@ -36,6 +36,19 @@
             android:layout_above="@id/table"
             android:layout_weight="1"
             android:fastScrollEnabled="true"
-             />
+            />
+    
+    <TextView
+    		android:id="@+id/empty_view"
+    		android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/actionbar"
+            android:layout_above="@id/table"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="לא נמצאו תוספים מתאימים לסינון"
+            android:textSize="14sp"
+            android:visibility="gone"
+    		/>
     
 </RelativeLayout>
