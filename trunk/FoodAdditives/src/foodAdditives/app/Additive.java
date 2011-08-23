@@ -1,6 +1,8 @@
 package foodAdditives.app;
 
-public class Additive {
+import java.io.Serializable;
+
+public class Additive implements Serializable {
 	
 	public Additive(String eNumber, String name, Safety safety, String category, String comment)
 	{
