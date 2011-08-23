@@ -6,19 +6,17 @@ import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.text.*;
 import android.view.*;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.*;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class FoodAdditivesActivity extends Activity {
 	
 	private AdditivesRepository repository = new AdditivesRepository();
 	private EditText filterText;
 	private AdditivesAdapter adapter;
-	private Toast filterToast;
 	
     /** Called when the activity is first created. */
     @Override
@@ -64,6 +62,16 @@ public class FoodAdditivesActivity extends Activity {
         View emptyView = findViewById(R.id.empty_view);
         listView.setEmptyView(emptyView);
         
+        // add click listener to list view items
+        listView.setOnItemClickListener(new OnItemClickListener() {
+        	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        			Additive additive = (Additive)adapter.getItem(position);
+        			Intent intent = new Intent(view.getContext(), AdditiveDetailsActivity.class);
+        			intent.putExtra("additive", additive);
+        			FoodAdditivesActivity.this.startActivity(intent);
+                }
+			});
     }
     
     public void ButtonClicked(View view) {

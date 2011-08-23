@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+    
+    <foodAdditives.app.ActionBar
+        android:id="@+id/detailsactionbar"
+        style="@style/ActionBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        />
+    
+   	
+   	<LinearLayout
+   		android:layout_width="fill_parent"
+   		android:layout_height="wrap_content"
+   		android:paddingTop="20dip"
+   		android:orientation="horizontal"
+   		>
+   		
+   		<TextView 
+	   		android:id="@+id/additive_enumber"
+	   		android:layout_width="0dip"
+	   		android:layout_height="wrap_content"
+	   		android:singleLine="true"
+	        android:ellipsize="none"
+	        android:scrollHorizontally="false"
+	        android:textSize="16sp"
+	        android:textStyle="bold"
+	        android:layout_weight="1"
+	        android:layout_gravity="center_vertical"
+	   		/>
+   		
+   		<ImageView
+        	android:id="@+id/additive_icon"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_marginRight="6dip"/>  	
+	   	
+   	
+	   	
+   		
+   	</LinearLayout>
+   	
+		
+	<TextView 
+		android:id="@+id/additive_name" 
+   		android:layout_width="fill_parent"
+   		android:paddingTop="5dip"
+   		android:layout_height="wrap_content" 
+   		android:singleLine="false"
+        android:ellipsize="none"
+        android:scrollHorizontally="false"
+        android:textSize="16sp"
+        android:textStyle="bold"
+		/>
+		
+	<TextView 
+		android:id="@+id/additive_category" 
+   		android:layout_width="fill_parent"
+   		android:paddingTop="5dip"
+   		android:layout_height="wrap_content" 
+       	android:singleLine="false"
+        android:ellipsize="none"
+        android:scrollHorizontally="false"
+        android:textSize="16sp"
+		/>
+
+	
+	<TextView 
+		android:id="@+id/additive_comments" 
+   		android:layout_width="fill_parent"
+   		android:paddingTop="5dip"
+   		android:layout_height="wrap_content" 
+        android:singleLine="false"
+        android:ellipsize="none"
+        android:scrollHorizontally="false"
+        android:textSize="16sp"   		
+		/>
+
+    
+</LinearLayout>
