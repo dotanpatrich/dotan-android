@@ -82,12 +82,19 @@ public class AdditivesAdapter extends ArrayAdapter<Additive> {
 		return additiveItems.get(position);
 	}
 	
-	private class AdditivesFilter extends Filter {
+	public class AdditivesFilter extends Filter {
+		
+		private boolean textMode = false;
+		
 		@Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
         	additiveItems = (List<Additive>)results.values;
             notifyDataSetChanged();
         }
+		
+		public synchronized void setTextMode(boolean mode) {
+			textMode = mode;
+		}
 		
 		@Override
 		protected FilterResults performFiltering(CharSequence prefix) {
@@ -109,11 +116,18 @@ public class AdditivesAdapter extends ArrayAdapter<Additive> {
 				List<Additive> filteredList = new LinkedList<Additive>();
 				String filterTerm = prefix.toString();
 	
-				for(int i=0; i<additiveItems.size(); i++) {
-					Additive additive = additiveItems.get(i);
+				for(int i=0; i<mOriginalValues.size(); i++) {
+					Additive additive = mOriginalValues.get(i);
 	
-					if (additive.eNumber.startsWith(filterTerm))
-						filteredList.add(additive);
+					if (textMode) {
+						if (additive.name.startsWith(filterTerm)) {
+							filteredList.add(additive);
+						}
+					} else {
+						if (additive.eNumber.startsWith(filterTerm)) {
+							filteredList.add(additive);
+						}
+					}
 				}
 	
 				
