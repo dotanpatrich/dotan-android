@@ -2,8 +2,16 @@ package foodAdditives.app;
 
 import foodAdditives.app.ActionBar.Action;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.*;
 
@@ -47,7 +55,7 @@ public class AdditiveDetailsActivity extends Activity {
 	 
 	 private class BackAction implements Action {
 		public int getDrawable() {
-			return R.drawable.ic_dialog_menu_generic;
+			return R.drawable.ic_menu_revert;
 		}
         
 		public void performAction(View view) {
@@ -55,5 +63,37 @@ public class AdditiveDetailsActivity extends Activity {
         }
         
 	 }
+	 
+	 @Override
+	    public boolean onCreateOptionsMenu(Menu menu) {
+	        MenuInflater inflater = getMenuInflater();
+	        inflater.inflate(R.menu.options_menu, menu);
+	        return true;
+	    }
+	 
+	 @Override
+	    public boolean onOptionsItemSelected(MenuItem item) {
+	        switch (item.getItemId()) {
+	            case R.id.aboutItem:   
+	            	Builder builder = new AlertDialog.Builder(this);
+	                builder.setTitle("אודות תוספי מזון");
+	                builder.setIcon(R.drawable.logo);
+	                builder.setPositiveButton("אישור", null);
+	                
+	                LayoutInflater  inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+	                View view = inflater.inflate(R.layout.about_dialog, (ViewGroup) findViewById(R.layout.main));               
+	                builder.setView(view);                
+	                
+	                AlertDialog dialog = builder.create();
+	                dialog.show();
+	            	
+	                break;
+	            case R.id.exitItem: 
+	            	AdditiveDetailsActivity.this.setResult(42);
+	            	AdditiveDetailsActivity.this.finish();
+	                break;
+	        }
+	        return true;
+	    }
 	
 }

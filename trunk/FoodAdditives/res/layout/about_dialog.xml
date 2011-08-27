@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="wrap_content" android:layout_height="wrap_content">
+
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:orientation="vertical"
   android:layout_width="wrap_content" android:layout_height="wrap_content">
     
+   
     <TextView 
-   		android:text="אפליקציה זו מאפשרת חיפוש מידע ובטיחות עבור תוספי מזון. מאגר המידע נלקח מתוך מאגרי מידע פתוחים וחופשיים באינטרנט ובטיחות התוספים נבדקה מול פרסומי רשות המזון והתרופות האמריקאית וכן האיחוד הארופאי." 
+   		android:text="אם גם אתם מאלו שקוראים את התוויות של המוצרים בסופר ולא מבינים מה אומרים כל הרכיבים אז אפליקציה זו נועדה בדיוק בשבילכם! מאפשרת חיפוש מידע ובטיחות עבור תוספי מזון מתוך מאגרי מידע פתוחים ואמינים באינטרנט (FDA ו-EU)." 
    		android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:singleLine="false"
@@ -21,72 +26,44 @@
         android:ellipsize="none"
         />
        
-      <LinearLayout
-      	android:layout_width="fill_parent" 
-      	android:layout_height="wrap_content"
-      	android:gravity="right"
-      	android:orientation="horizontal"
-      	android:layout_marginRight="6dip"
-      	>
       	<TextView 
-      		android:text="מותר לשימוש"
+      		android:text="ירוק - בטוח לשימוש"
+        android:scrollHorizontally="false"
+        android:layout_marginRight="4dip"
+        android:ellipsize="none"
       		android:singleLine="true"
       		android:layout_width="fill_parent" 
       		android:layout_height="wrap_content"/>
       		
-     	<ImageView 
-    		android:id="@+id/about_safe_icon"
-    		android:src="@drawable/safe"
-    		android:layout_width="wrap_content" 
-      		android:layout_height="wrap_content"
-    		/>
-      		
-      </LinearLayout>
-      
-      <LinearLayout
-      	android:layout_width="fill_parent" 
-      	android:layout_height="wrap_content"
-      	android:gravity="right"
-      	android:orientation="horizontal"
-      	android:layout_marginRight="6dip"
-      	>
       	<TextView 
-      		android:text="קיים חשד סביר לסיכון"
+      		android:text="צהוב - קיים חשד סביר לסיכון"
+        android:scrollHorizontally="false"
+        android:layout_marginRight="4dip"
+        android:ellipsize="none"
       		android:singleLine="true"
       		android:layout_width="fill_parent" 
       		android:layout_height="wrap_content"/>
       		
-    	<ImageView 
-    		android:id="@+id/about_suspect_icon"
-    		android:src="@drawable/warning"
-    		android:layout_width="wrap_content" 
-      		android:layout_height="wrap_content"
-    		/>
-      		
-      </LinearLayout>
-      
-      <LinearLayout
-      	android:layout_width="fill_parent" 
-      	android:layout_height="wrap_content"
-      	android:gravity="right"
-      	android:orientation="horizontal"
-      	android:layout_marginRight="6dip"
-      	>
       	<TextView 
-      		android:text="הוכח כמזיק"
+      		android:text="אדום - הוכח כמזיק"
+        android:scrollHorizontally="false"
+        android:layout_marginRight="4dip"
+        android:ellipsize="none"
       		android:singleLine="true"
       		android:layout_width="fill_parent" 
       		android:layout_height="wrap_content"/>
       		
-    	<ImageView 
-    		android:id="@+id/about_forbidden_icon"
-    		android:src="@drawable/forbidden"
-    		android:layout_width="wrap_content" 
-      		android:layout_height="wrap_content"
-    		/>
-      		
-      </LinearLayout>
       
+      <TextView 
+   		android:text="בחירת תוסף מזון ברשימה מציגה פרטים נוספים והערות שקיימות לגביו. לחיצה על כפתור החיפוש ליד תיבת הטקסט בכותרת החלון מחליפה בין מצב חיפוש מספרים לטקסט." 
+   		android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="false"
+        android:scrollHorizontally="false"
+        android:ellipsize="none"
+        android:paddingTop="5dip"
+        />
+        
         
       <TextView 
    		android:text="פותח על ידי דותן פטריך, 2011" 
@@ -99,3 +76,4 @@
         />
     
 </LinearLayout>
+</ScrollView>
